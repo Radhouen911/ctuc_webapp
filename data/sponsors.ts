@@ -15,9 +15,10 @@ export type Sponsor = {
 export const SPONSORS: Sponsor[] = [
   { name: "Altered Security", logo: "/sponsors/altered-security.webp", url: "https://www.alteredsecurity.com", plate: "light" },
   { name: "Hackviser", logo: "/sponsors/hackviser.webp", url: "https://hackviser.com" },
-  { name: "CyberDefenders", logo: "/sponsors/cyberdefenders.webp", url: "https://cyberdefenders.org" },
-  { name: ".xyz", logo: "/sponsors/xyz.svg", url: "https://gen.xyz" },
   { name: "MAD", logo: "/sponsors/mad.webp", plate: "light" },
+  { name: "CyberDefenders", logo: "/sponsors/cyberdefenders.webp", url: "https://cyberdefenders.org" },
+  { name: "GenAI Security Lab", logo: "/sponsors/genai-security-lab.webp", plate: "light" },
+  { name: ".xyz", logo: "/sponsors/xyz.svg", url: "https://gen.xyz" },
 ];
 
 /** The ribbon always shows at least this many items (partners + open slots). */
