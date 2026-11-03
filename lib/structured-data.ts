@@ -20,6 +20,15 @@ export function homeJsonLd() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "Organization",
+      name: EVENT.fullName,
+      alternateName: EVENT.shortName,
+      url: url("/"),
+      logo: url("/icon.png"),
+      member: CLUBS.map((club) => ({ "@type": "Organization", name: club.name })),
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Event",
       name: EVENT.fullName,
       alternateName: EVENT.shortName,
