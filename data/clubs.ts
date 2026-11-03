@@ -16,7 +16,7 @@ export const CLUBS: Club[] = [
     id: "engineers-spark",
     name: "Engineers Spark iTeam University",
     accent: "signal",
-    logo: { src: "/clubs/engineers-spark-iteam-web.png", width: 652, height: 725 },
+    logo: { src: "/clubs/engineers-spark-iteam.webp", width: 652, height: 725 },
     tagline: "The iTeam chapter of the Engineers Spark network.",
     network: {
       name: "Engineers Spark",
@@ -31,7 +31,7 @@ export const CLUBS: Club[] = [
     id: "securinets",
     name: "Securinets iTeam University",
     accent: "crimson",
-    logo: { src: "/clubs/securinets-iteam.png", width: 425, height: 406 },
+    logo: { src: "/clubs/securinets-iteam.webp", width: 500, height: 500 },
     tagline: "A student-led cybersecurity club with 80+ members.",
     network: {
       name: "Securinets",

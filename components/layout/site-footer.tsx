@@ -38,7 +38,7 @@ export function SiteFooter() {
             {/* Official emblem on a white plate: the JPG has a white ground that must not be cut out. */}
             <div className="mb-5 inline-block bg-white p-2.5">
               <Image
-                src="/FTSSU.jpg"
+                src="/FTSSU.webp"
                 alt={`${EVENT.poweredBy.name} (${EVENT.poweredBy.shortName}) logo`}
                 width={364}
                 height={549}

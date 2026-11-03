@@ -14,18 +14,27 @@ function RibbonItem({ item, hidden }: { item: Item; hidden?: boolean }) {
     );
   }
   const { sponsor } = item;
+  const logo = <Image src={sponsor.logo} alt={sponsor.name} fill sizes="256px" className="object-contain py-5" />;
+  const frame = "relative block h-full w-full opacity-90 transition-opacity duration-300 hover:opacity-100";
   return (
-    <li aria-hidden={hidden} className={cn(base, "border-line bg-surface/40")}>
-      <a
-        href={sponsor.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        tabIndex={hidden ? -1 : undefined}
-        className="relative block h-full w-full opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
-      >
-        <Image src={sponsor.logo} alt={sponsor.name} fill sizes="256px" className="object-contain py-5" />
-        <span className="sr-only">(opens in a new tab)</span>
-      </a>
+    <li
+      aria-hidden={hidden}
+      className={cn(base, sponsor.plate === "light" ? "border-white bg-white" : "border-line bg-surface/40")}
+    >
+      {sponsor.url ? (
+        <a
+          href={sponsor.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={hidden ? -1 : undefined}
+          className={frame}
+        >
+          {logo}
+          <span className="sr-only">(opens in a new tab)</span>
+        </a>
+      ) : (
+        <span className={frame}>{logo}</span>
+      )}
     </li>
   );
 }

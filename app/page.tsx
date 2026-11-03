@@ -9,6 +9,7 @@ import { SponsorsPreview } from "@/components/sections/sponsors-preview";
 import { FinalCta } from "@/components/sections/final-cta";
 import { pageMetadata } from "@/lib/metadata";
 import { EVENT } from "@/data/event";
+import { homeJsonLd, jsonLdScript } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   title: "Home",
@@ -19,6 +20,7 @@ export const metadata = pageMetadata({
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(homeJsonLd()) }} />
       <Hero />
       <About />
       <Categories />

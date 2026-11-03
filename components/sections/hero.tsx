@@ -43,7 +43,7 @@ export function Hero() {
               <span className="rise block" style={{ ["--d" as string]: "80ms" }}>
                 {/* Height-capped on desktop so the hero still fits one viewport; width follows the logo's 700:556 ratio. */}
                 <GlitchLogo
-                  src="/logo_ctuc.png"
+                  src="/logo_ctuc.webp"
                   alt={EVENT.shortName}
                   width={700}
                   height={556}
