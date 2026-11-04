@@ -39,7 +39,7 @@ export function Prizes() {
               <span className="text-mute">In each track.</span>
             </h2>
             <p className="mt-6 max-w-[52ch] leading-relaxed text-mute">
-              The {PRIZE_TRACKS.join(" and ")} CTFs each crown their own top three: six winning teams on the day.
+              The {PRIZE_TRACKS.join(" and ")} CTFs each crown their own top three: six winning teams in all.
             </p>
           </div>
           {/* Shown only once the prize pool is confirmed in data/prizes.ts. */}

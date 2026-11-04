@@ -35,7 +35,9 @@ export function homeJsonLd() {
       description: `Tunisia's national university Capture The Flag championship. Teams of four compete in parallel Beginner and Advanced Jeopardy CTFs covering web, binary exploitation, reverse engineering, cryptography, forensics, OSINT and hardware.`,
       url: url("/"),
       image: [url("/opengraph-image.png")],
-      startDate: EVENT.startsAt,
+      // Dates only: the start and end times are not confirmed yet.
+      startDate: EVENT.startDate,
+      endDate: EVENT.endDate,
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       inLanguage: "en",
@@ -55,9 +57,22 @@ export function homeJsonLd() {
         },
         hasMap: EVENT.venue.mapsUrl,
       },
-      organizer: CLUBS.map((club) => ({ "@type": "Organization", name: club.name })),
+      organizer: CLUBS.map((club) => ({ "@type": "Organization", name: club.name, url: url(`/#${club.id}`) })),
+      performer: { "@type": "PerformingGroup", name: "Student teams from Tunisian universities" },
       sponsor: { "@type": "Organization", name: EVENT.poweredBy.name, url: EVENT.poweredBy.url },
       audience: { "@type": "EducationalAudience", educationalRole: "student" },
+      // Published only once the entry fee is confirmed: a price must never be guessed.
+      ...(EVENT.entryFeeTnd !== null && {
+        offers: {
+          "@type": "Offer",
+          url: url("/register"),
+          price: EVENT.entryFeeTnd,
+          priceCurrency: "TND",
+          // Registration is not open until its URL is set.
+          availability: `https://schema.org/${EVENT.registrationUrl ? "InStock" : "PreOrder"}`,
+          ...(EVENT.registrationOpens && { validFrom: EVENT.registrationOpens }),
+        },
+      }),
     },
   ];
 }

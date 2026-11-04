@@ -43,7 +43,7 @@ function LiveBadge({ size }: { size: "lg" | "sm" }) {
   );
 }
 
-const srLabel = `Countdown to ${EVENT.shortName}, starting ${EVENT.dateLabel} at 09:00 Tunis time`;
+const srLabel = `Countdown to ${EVENT.shortName}, starting ${EVENT.startLabel}`;
 
 /** Full precision instrument used in the hero. */
 export function CountdownInstrument({ className }: { className?: string }) {

@@ -10,6 +10,7 @@ const FACTS = [
   { label: "Eligibility", value: EVENT.eligibility },
   { label: "Team size", value: EVENT.teamSize },
   { label: "Duration", value: EVENT.duration },
+  { label: "Entry", value: EVENT.entryFeeTnd === null ? null : EVENT.entryFeeTnd === 0 ? "Free" : `${EVENT.entryFeeTnd} TND` },
 ];
 
 export function About() {

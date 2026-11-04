@@ -15,7 +15,8 @@ const url = (path: string) => new URL(path, SITE_URL).toString();
  */
 export function GET() {
   const facts = [
-    `Date: ${EVENT.weekday} ${EVENT.dateLabel}, starting 09:00 (Africa/Tunis, UTC+01:00)`,
+    `Date: ${EVENT.weekday}, ${EVENT.dateLabel}. Starts ${EVENT.startLabel} and runs overnight; start time to be announced`,
+    EVENT.entryFeeTnd === 0 && `Entry: free`,
     `Venue: ${EVENT.venue.name}, ${EVENT.venue.address}, ${EVENT.venue.country} (${EVENT.venue.mapsUrl})`,
     EVENT.format && `Format: ${EVENT.format} Capture The Flag`,
     EVENT.teamSize && `Team size: ${EVENT.teamSize}`,

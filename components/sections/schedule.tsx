@@ -18,14 +18,14 @@ export function Schedule() {
               Schedule
             </h2>
             <Reveal className="mt-10">
-              <p aria-hidden className="flex items-start gap-4">
-                <span className="font-condensed text-[clamp(9rem,30vw,15rem)] font-black leading-[0.78] tracking-[-0.03em]">
-                  28
+              <p aria-hidden>
+                <span className="block whitespace-nowrap font-condensed text-[min(44vw,15rem)] font-black leading-[0.78] tracking-[-0.03em] md:text-[min(18vw,15rem)]">
+                  28–29
                 </span>
-                <span className="mt-3 flex flex-col gap-1">
+                <span className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <span className="font-editorial text-2xl font-semibold tracking-tight md:text-3xl">November</span>
                   <span className="font-editorial text-2xl tracking-tight text-mute md:text-3xl">2026</span>
-                  <span className="annotation mt-3 text-signal">{EVENT.weekday}</span>
+                  <span className="annotation text-signal">{EVENT.weekday}</span>
                 </span>
               </p>
               <p className="sr-only">
@@ -33,7 +33,7 @@ export function Schedule() {
               </p>
             </Reveal>
             <p className="mt-10 max-w-[38ch] leading-relaxed text-mute">
-              One day at{" "}
+              From Saturday into Sunday at{" "}
               <a
                 href={EVENT.venue.mapsUrl}
                 target="_blank"

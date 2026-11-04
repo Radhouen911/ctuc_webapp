@@ -11,9 +11,13 @@ export const EVENT = {
   tagline: "Find the flaw. Take the flag.",
   edition: "CTUC·26",
   startsAt: EVENT_START_ISO,
-  dateLabel: "28 November 2026",
-  dateCompact: "28.11.2026",
-  weekday: "Saturday",
+  dateLabel: "28–29 November 2026",
+  /** The day the championship starts; it runs overnight and ends on `endDate`. */
+  startLabel: "28 November 2026",
+  startDate: "2026-11-28",
+  endDate: "2026-11-29",
+  dateCompact: "28–29.11.2026",
+  weekday: "Saturday to Sunday",
 
   venue: {
     name: "Tunis Science City",
@@ -43,7 +47,7 @@ export const EVENT = {
   eligibility: "Students of a Tunisian university" as string | null,
   teamSize: "4 players" as string | null,
 
-  /** Two competitions run in parallel on the same day. */
+  /** Two competitions run in parallel. */
   tracks: [
     {
       id: "beginner",
@@ -60,6 +64,8 @@ export const EVENT = {
   registrationUrl: null as string | null,
   registrationOpens: null as string | null,
   registrationCloses: null as string | null,
+  /** Entry fee in Tunisian dinars; 0 means free. */
+  entryFeeTnd: 0 as number | null,
   contactEmail: null as string | null,
   sponsorshipEmail: null as string | null,
   brochureUrl: "/CTUC_Sponsorshipfolder.pdf" as string | null,

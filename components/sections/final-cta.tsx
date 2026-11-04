@@ -30,7 +30,7 @@ export function FinalCta() {
                 id="final-title"
                 className="mt-8 font-editorial text-[clamp(2.75rem,7vw,6.25rem)] font-semibold leading-[0.92] tracking-[-0.045em]"
               >
-                Four players. One day. <span className="text-mute">Every flag counts.</span>
+                Four players. Through the night. <span className="text-mute">Every flag counts.</span>
               </h2>
             </Reveal>
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -52,7 +52,7 @@ export function FinalCta() {
               <div>
                 <dt className="annotation text-mute">Date</dt>
                 <dd className="mt-1 text-sm">
-                  <time dateTime={EVENT.startsAt}>{EVENT.dateLabel}</time>
+                  <time dateTime={EVENT.startDate}>{EVENT.dateLabel}</time>
                 </dd>
               </div>
               <div>

@@ -77,7 +77,7 @@ export function Hero() {
             <div>
               <dt className="annotation text-mute">Date</dt>
               <dd className="mt-1.5 font-condensed text-2xl font-extrabold uppercase leading-none tracking-wide md:text-3xl">
-                <time dateTime={EVENT.startsAt}>{EVENT.dateLabel}</time>
+                <time dateTime={EVENT.startDate}>{EVENT.dateLabel}</time>
               </dd>
             </div>
             <div>

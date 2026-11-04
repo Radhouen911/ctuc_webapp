@@ -5,9 +5,9 @@ export type ScheduleSlot = {
   note?: string;
 };
 
-/** Only the start time is confirmed (it matches the official countdown). */
+/** Nothing is timed yet: the start time is still to be announced. */
 export const SCHEDULE: ScheduleSlot[] = [
-  { slot: "01", time: "09:00", title: "Championship start", note: "Africa/Tunis · UTC+01:00" },
+  { slot: "01", time: null, title: "Championship start", note: "Start time TBA" },
   { slot: "02", time: null, title: null },
   { slot: "03", time: null, title: null },
   { slot: "04", time: null, title: null },
