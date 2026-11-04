@@ -314,7 +314,8 @@ body::after {
     justify-content: center;
     width: 100%;
   }
-  .ribbon-track > ul[aria-hidden="true"] {
+  .ribbon-track > ul[aria-hidden="true"],
+  .ribbon-track li[data-repeat] {
     display: none;
   }
 }

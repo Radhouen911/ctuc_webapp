@@ -2,24 +2,20 @@ import Image from "next/image";
 import { RIBBON_MIN_ITEMS, SPONSORS, type Sponsor } from "@/data/sponsors";
 import { cn } from "@/lib/utils";
 
-type Item = { kind: "sponsor"; sponsor: Sponsor } | { kind: "open"; id: number };
+/** Seconds each tile takes to scroll past, so the speed stays the same as partners are added. */
+const SECONDS_PER_ITEM = 6;
 
-function RibbonItem({ item, hidden }: { item: Item; hidden?: boolean }) {
-  const base = "flex h-24 w-56 shrink-0 items-center justify-center border px-6 md:h-28 md:w-64";
-  if (item.kind === "open") {
-    return (
-      <li aria-hidden={hidden} className={cn(base, "border-dashed border-line")}>
-        <span className="annotation text-mute">Your logo here</span>
-      </li>
-    );
-  }
-  const { sponsor } = item;
+function RibbonItem({ sponsor, hidden, repeat }: { sponsor: Sponsor; hidden?: boolean; repeat?: boolean }) {
   const logo = <Image src={sponsor.logo} alt={sponsor.name} fill sizes="256px" className="object-contain py-5" />;
   const frame = "relative block h-full w-full opacity-90 transition-opacity duration-300 hover:opacity-100";
   return (
     <li
       aria-hidden={hidden}
-      className={cn(base, sponsor.plate === "light" ? "border-white bg-white" : "border-line bg-surface/40")}
+      data-repeat={repeat || undefined}
+      className={cn(
+        "flex h-24 w-56 shrink-0 items-center justify-center border px-6 md:h-28 md:w-64",
+        sponsor.plate === "light" ? "border-white bg-white" : "border-line bg-surface/40",
+      )}
     >
       {sponsor.url ? (
         <a
@@ -40,17 +36,16 @@ function RibbonItem({ item, hidden }: { item: Item; hidden?: boolean }) {
 }
 
 /**
- * Infinite horizontal ribbon of partner logos. No tiers: every partner gets the same slot.
- * The list is rendered twice and translated by -50% for a seamless CSS-only loop;
- * the copy is hidden from assistive tech and the tab order. Pauses on hover/focus,
- * and stops for reduced-motion users.
+ * Endless horizontal ribbon of partner logos. No tiers: every partner gets the same slot.
+ * Partners repeat until one list is wider than any screen, and the list is rendered twice
+ * and translated by -50% for a seamless CSS-only loop. Repeats are hidden from assistive
+ * tech and the tab order. Pauses on hover/focus, and stops for reduced-motion users.
  */
 export function PartnerRibbon({ className }: { className?: string }) {
-  const items: Item[] = [
-    ...SPONSORS.map((sponsor) => ({ kind: "sponsor" as const, sponsor })),
-    ...Array.from({ length: Math.max(0, RIBBON_MIN_ITEMS - SPONSORS.length) }, (_, id) => ({ kind: "open" as const, id })),
-  ];
-  const key = (item: Item) => (item.kind === "sponsor" ? item.sponsor.name : `open-${item.id}`);
+  if (SPONSORS.length === 0) return null;
+
+  const copies = Math.ceil(RIBBON_MIN_ITEMS / SPONSORS.length);
+  const items = Array.from({ length: copies }, (_, copy) => SPONSORS.map((sponsor) => ({ sponsor, copy }))).flat();
 
   return (
     <div
@@ -60,15 +55,15 @@ export function PartnerRibbon({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="ribbon-track flex w-max gap-4">
+      <div className="ribbon-track flex w-max gap-4" style={{ animationDuration: `${items.length * SECONDS_PER_ITEM}s` }}>
         <ul aria-label="Partners" className="flex gap-4">
-          {items.map((item) => (
-            <RibbonItem key={key(item)} item={item} />
+          {items.map(({ sponsor, copy }) => (
+            <RibbonItem key={`${sponsor.name}-${copy}`} sponsor={sponsor} hidden={copy > 0} repeat={copy > 0} />
           ))}
         </ul>
         <ul aria-hidden className="flex gap-4">
-          {items.map((item) => (
-            <RibbonItem key={key(item)} item={item} hidden />
+          {items.map(({ sponsor, copy }) => (
+            <RibbonItem key={`${sponsor.name}-${copy}`} sponsor={sponsor} hidden />
           ))}
         </ul>
       </div>

@@ -10,7 +10,7 @@ export type Sponsor = {
 
 /**
  * Confirmed partners, shown in the rolling ribbon in the order listed.
- * Add logos here as agreements are signed; empty slots fill the ribbon until then.
+ * Add logos here as agreements are signed.
  */
 export const SPONSORS: Sponsor[] = [
   { name: "Altered Security", logo: "/sponsors/altered-security.webp", url: "https://www.alteredsecurity.com", plate: "light" },
@@ -21,8 +21,8 @@ export const SPONSORS: Sponsor[] = [
   { name: ".xyz", logo: "/sponsors/xyz.svg", url: "https://gen.xyz" },
 ];
 
-/** The ribbon always shows at least this many items (partners + open slots). */
-export const RIBBON_MIN_ITEMS = 8;
+/** Partners repeat up to at least this many tiles, enough to fill very wide screens without a gap. */
+export const RIBBON_MIN_ITEMS = 16;
 
 /** From the sponsorship brochure ("Ways to support us"). */
 export const SUPPORT_WAYS = [
