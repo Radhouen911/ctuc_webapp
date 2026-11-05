@@ -6,14 +6,24 @@ import { cn } from "@/lib/utils";
 const SECONDS_PER_ITEM = 6;
 
 function RibbonItem({ sponsor, hidden, repeat }: { sponsor: Sponsor; hidden?: boolean; repeat?: boolean }) {
-  const logo = <Image src={sponsor.logo} alt={sponsor.name} fill sizes="256px" className="object-contain py-5" />;
+  const banner = sponsor.plate === "banner";
+  const logo = (
+    <Image
+      src={sponsor.logo}
+      alt={sponsor.name}
+      fill
+      sizes="256px"
+      className={banner ? "object-cover" : "object-contain py-5"}
+    />
+  );
   const frame = "relative block h-full w-full opacity-90 transition-opacity duration-300 hover:opacity-100";
   return (
     <li
       aria-hidden={hidden}
       data-repeat={repeat || undefined}
       className={cn(
-        "flex h-24 w-56 shrink-0 items-center justify-center border px-6 md:h-28 md:w-64",
+        "flex h-24 w-56 shrink-0 items-center justify-center border md:h-28 md:w-64",
+        !banner && "px-6",
         sponsor.plate === "light" ? "border-white bg-white" : "border-line bg-surface/40",
       )}
     >

@@ -4,8 +4,11 @@ export type Sponsor = {
   logo: string;
   /** Partner website. Omit to show the logo without a link. */
   url?: string;
-  /** "light" puts the logo on a white tile, for logos that come on a white background. */
-  plate?: "light";
+  /**
+   * "light" puts the logo on a white tile, for logos that come on a white background.
+   * "banner" fills the whole tile edge to edge, for artwork with its own background.
+   */
+  plate?: "light" | "banner";
 };
 
 /**
@@ -16,7 +19,7 @@ export const SPONSORS: Sponsor[] = [
   { name: "Altered Security", logo: "/sponsors/altered-security.webp", url: "https://www.alteredsecurity.com", plate: "light" },
   { name: "Hackviser", logo: "/sponsors/hackviser.webp", url: "https://hackviser.com" },
   { name: "MAD", logo: "/sponsors/mad.webp", plate: "light" },
-  { name: "CyberDefenders", logo: "/sponsors/cyberdefenders.webp", url: "https://cyberdefenders.org" },
+  { name: "CyberDefenders", logo: "/sponsors/cyberdefenders.webp", url: "https://cyberdefenders.org", plate: "banner" },
   { name: "GenAI Security Lab", logo: "/sponsors/genai-security-lab.webp", plate: "light" },
   { name: ".xyz", logo: "/sponsors/xyz.svg", url: "https://gen.xyz" },
 ];
