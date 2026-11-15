@@ -2,7 +2,7 @@
  * Single source of truth for the championship start.
  * Africa/Tunis is UTC+01:00 year-round (no DST).
  */
-export const EVENT_START_ISO = "2026-11-28T09:00:00+01:00";
+export const EVENT_START_ISO = "2026-12-05T09:00:00+01:00";
 export const EVENT_START_MS = Date.parse(EVENT_START_ISO);
 export const EVENT_TIMEZONE = "Africa/Tunis";
 

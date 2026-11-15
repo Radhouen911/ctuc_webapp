@@ -20,16 +20,16 @@ export function Schedule() {
             <Reveal className="mt-10">
               <p aria-hidden>
                 <span className="block whitespace-nowrap font-condensed text-[min(44vw,15rem)] font-black leading-[0.78] tracking-[-0.03em] md:text-[min(18vw,15rem)]">
-                  28–29
+                  5–6
                 </span>
                 <span className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="font-editorial text-2xl font-semibold tracking-tight md:text-3xl">November</span>
+                  <span className="font-editorial text-2xl font-semibold tracking-tight md:text-3xl">December</span>
                   <span className="font-editorial text-2xl tracking-tight text-mute md:text-3xl">2026</span>
                   <span className="annotation text-signal">{EVENT.weekday}</span>
                 </span>
               </p>
               <p className="sr-only">
-                <time dateTime="2026-11-28">{EVENT.weekday}, {EVENT.dateLabel}</time>
+                <time dateTime={EVENT.startDate}>{EVENT.weekday}, {EVENT.dateLabel}</time>
               </p>
             </Reveal>
             <p className="mt-10 max-w-[38ch] leading-relaxed text-mute">

@@ -94,7 +94,7 @@ export function ChampionshipMark({ className }: { className?: string }) {
       <g className="mark-ring">
         <text className="fill-mute font-mono" fontSize="9.5" letterSpacing="3.2">
           <textPath href="#mark-text-path">
-            CYBERSECURITY TUNISIAN UNIVERSITY CHAMPIONSHIP · 28–29.11.2026 · TUNIS SCIENCE CITY · BEGINNER + ADVANCED ·
+            CYBERSECURITY TUNISIAN UNIVERSITY CHAMPIONSHIP · 05–06.12.2026 · TUNIS SCIENCE CITY · BEGINNER + ADVANCED ·
           </textPath>
         </text>
       </g>

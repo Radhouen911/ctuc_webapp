@@ -7,7 +7,7 @@ Jeopardy-style security challenges in web, binary exploitation, reverse engineer
 hardware and more. Two competitions run in parallel: a **Beginner CTF** and an **Advanced CTF**, so every student has
 a place, whatever their level or field of study.
 
-- **Date:** Saturday 28 to Sunday 29 November 2026 (overnight)
+- **Date:** Saturday 5 to Sunday 6 December 2026 (overnight)
 - **Entry:** free
 - **Venue:** Tunis Science City, Tunis
 - **Who can join:** students of any Tunisian university

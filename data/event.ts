@@ -11,12 +11,12 @@ export const EVENT = {
   tagline: "Find the flaw. Take the flag.",
   edition: "CTUC·26",
   startsAt: EVENT_START_ISO,
-  dateLabel: "28–29 November 2026",
+  dateLabel: "5–6 December 2026",
   /** The day the championship starts; it runs overnight and ends on `endDate`. */
-  startLabel: "28 November 2026",
-  startDate: "2026-11-28",
-  endDate: "2026-11-29",
-  dateCompact: "28–29.11.2026",
+  startLabel: "5 December 2026",
+  startDate: "2026-12-05",
+  endDate: "2026-12-06",
+  dateCompact: "05–06.12.2026",
   weekday: "Saturday to Sunday",
 
   venue: {

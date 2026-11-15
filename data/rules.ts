@@ -20,7 +20,7 @@ export const RULE_SECTIONS: RuleSection[] = [
     scope: "What the championship is, when and where it takes place, and the disciplines involved.",
     body: [
       "CTUC – Cybersecurity Tunisian University Championship is a national Capture The Flag competition for university students, powered by the Fédération Tunisienne des Sports Scolaires et Universitaires (FTSSU).",
-      "It runs overnight from 28 to 29 November 2026 at Tunis Science City, Tunisia.",
+      "It runs overnight from 5 to 6 December 2026 at Tunis Science City, Tunisia.",
       "Two competitions run in parallel: a Beginner CTF and an Advanced CTF.",
       "Challenges are drawn from eight classifications: Web, Pwn, Reverse Engineering, Cryptography, Forensics, OSINT, Hardware and Miscellaneous.",
     ],
