@@ -30,11 +30,11 @@ export function SponsorsPreview() {
               <CtaLink href="/sponsors" variant="text">
                 Become a partner
               </CtaLink>
-              {EVENT.brochureUrl && (
-                <CtaLink href={EVENT.brochureUrl} variant="text">
-                  Sponsorship brochure (PDF)
+              {EVENT.brochures.map((b) => (
+                <CtaLink key={b.lang} href={b.href} variant="text">
+                  Brochure, {b.language} (PDF)
                 </CtaLink>
-              )}
+              ))}
             </div>
           </div>
         </div>

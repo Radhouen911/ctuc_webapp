@@ -46,3 +46,7 @@ AGENTS.md
 .agents/
 .claude/
 skills-lock.json
+
+# Source files kept locally (the site uses the WebP and PDF exports)
+public/*.pptx
+public/sponsors/*.png

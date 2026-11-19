@@ -52,7 +52,7 @@ ${pages.map(([name, path, desc]) => `- [${name}](${url(path)}): ${desc}`).join("
 
 ## Optional
 
-- [Sponsorship brochure (PDF)](${url(EVENT.brochureUrl ?? "/sponsors")})
+${EVENT.brochures.map((b) => `- [${b.title}, ${b.language} (PDF)](${url(b.href)})`).join("\n")}
 `;
 
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });

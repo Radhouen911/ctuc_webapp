@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { EVENT } from "@/data/event";
 import { SUPPORT_WAYS } from "@/data/sponsors";
 import { Container } from "@/components/layout/container";
@@ -47,19 +47,23 @@ export default function SponsorsPage() {
                 <CtaLink href="#contact" size="lg">
                   Get in touch
                 </CtaLink>
-                {EVENT.brochureUrl && (
+                {EVENT.brochures.map((b) => (
                   <a
-                    href={EVENT.brochureUrl}
+                    key={b.lang}
+                    href={b.href}
+                    hrefLang={b.lang}
                     download
-                    className="group flex h-14 items-center justify-between gap-3 border border-line px-5 text-sm text-ink transition-colors hover:border-mute active:translate-y-px"
+                    className="group flex items-center gap-3 border border-line px-5 py-3.5 text-sm text-ink transition-colors hover:border-mute active:translate-y-px"
                   >
-                    <span className="flex items-center gap-2">
-                      <Download aria-hidden strokeWidth={1.5} className="size-4 text-signal" />
-                      Sponsorship brochure
+                    <Download aria-hidden strokeWidth={1.5} className="size-4 shrink-0 text-signal" />
+                    <span className="flex flex-col gap-1">
+                      <span lang={b.lang}>{b.title}</span>
+                      <span className="annotation text-mute">
+                        {b.language} · PDF · {b.size}
+                      </span>
                     </span>
-                    <span className="annotation text-mute">PDF · 4.2 MB</span>
                   </a>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -113,7 +117,7 @@ export default function SponsorsPage() {
         <PartnerRibbon className="mt-10" />
       </section>
 
-      {/* Contact: mail or social media */}
+      {/* Contact by email */}
       <section id="contact" aria-labelledby="contact-title" className="border-t border-line py-24 md:py-32">
         <Container>
           <div className="grid grid-cols-12 gap-x-6 gap-y-12">
@@ -126,7 +130,7 @@ export default function SponsorsPage() {
                 Tell us what matters to your organization.
               </h2>
               <p className="mt-6 max-w-[48ch] leading-relaxed text-mute">
-                Write to us or reach out on social media, and we will shape a partnership around it.
+                Write to us, and we will shape a partnership around it.
               </p>
             </div>
 
@@ -147,32 +151,14 @@ export default function SponsorsPage() {
                     )}
                   </dd>
                 </div>
-                <div className="flex items-start justify-between gap-4 border-b border-line py-5">
-                  <dt className="annotation pt-0.5 text-mute">Social</dt>
-                  <dd className="text-right text-sm">
-                    {EVENT.socials.length > 0 ? (
-                      <ul className="space-y-1.5">
-                        {EVENT.socials.map((s) => (
-                          <li key={s.url}>
-                            <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-signal">
-                              {s.label}
-                              <ArrowUpRight aria-hidden strokeWidth={1.5} className="size-4" />
-                              <span className="sr-only">(opens in a new tab)</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <Tba />
-                    )}
-                  </dd>
-                </div>
               </dl>
-              {EVENT.brochureUrl && (
-                <CtaLink href={EVENT.brochureUrl} variant="text" className="mt-6">
-                  Read the sponsorship brochure
-                </CtaLink>
-              )}
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+                {EVENT.brochures.map((b) => (
+                  <CtaLink key={b.lang} href={b.href} variant="text">
+                    Brochure ({b.language})
+                  </CtaLink>
+                ))}
+              </div>
             </div>
           </div>
         </Container>

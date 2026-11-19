@@ -13,7 +13,7 @@ function RibbonItem({ sponsor, hidden, repeat }: { sponsor: Sponsor; hidden?: bo
       alt={sponsor.name}
       fill
       sizes="256px"
-      className={banner ? "object-cover" : "object-contain py-5"}
+      className={banner ? "object-cover" : sponsor.plate === "black" ? "object-contain py-2" : "object-contain py-5"}
     />
   );
   const frame = "relative block h-full w-full opacity-90 transition-opacity duration-300 hover:opacity-100";
@@ -24,7 +24,11 @@ function RibbonItem({ sponsor, hidden, repeat }: { sponsor: Sponsor; hidden?: bo
       className={cn(
         "flex h-24 w-56 shrink-0 items-center justify-center border md:h-28 md:w-64",
         !banner && "px-6",
-        sponsor.plate === "light" ? "border-white bg-white" : "border-line bg-surface/40",
+        sponsor.plate === "light"
+          ? "border-white bg-white"
+          : sponsor.plate === "black"
+            ? "border-line bg-black"
+            : "border-line bg-surface/40",
       )}
     >
       {sponsor.url ? (

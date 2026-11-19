@@ -66,9 +66,14 @@ export const EVENT = {
   registrationCloses: null as string | null,
   /** Entry fee in Tunisian dinars; 0 means free. */
   entryFeeTnd: 0 as number | null,
-  contactEmail: null as string | null,
-  sponsorshipEmail: null as string | null,
-  brochureUrl: "/CTUC_Sponsorshipfolder.pdf" as string | null,
+  /** From the sponsorship brochure. */
+  contactEmail: "contact@ctuc.tech" as string | null,
+  sponsorshipEmail: "sponsor@ctuc.tech" as string | null,
+  /** Sponsorship brochures, one per language. */
+  brochures: [
+    { lang: "en", language: "English", title: "Sponsorship brochure", href: "/CTUC_2026_Sponsorship_EN.pdf", size: "477 KB" },
+    { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "557 KB" },
+  ],
 
   socials: [] as { label: string; url: string }[],
 };
