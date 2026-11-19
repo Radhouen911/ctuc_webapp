@@ -1,4 +1,4 @@
-import { Download, Mail } from "lucide-react";
+import { ArrowUpRight, Download, Mail } from "lucide-react";
 import { EVENT } from "@/data/event";
 import { SUPPORT_WAYS } from "@/data/sponsors";
 import { Container } from "@/components/layout/container";
@@ -117,7 +117,7 @@ export default function SponsorsPage() {
         <PartnerRibbon className="mt-10" />
       </section>
 
-      {/* Contact by email */}
+      {/* Contact: mail or social media */}
       <section id="contact" aria-labelledby="contact-title" className="border-t border-line py-24 md:py-32">
         <Container>
           <div className="grid grid-cols-12 gap-x-6 gap-y-12">
@@ -130,7 +130,7 @@ export default function SponsorsPage() {
                 Tell us what matters to your organization.
               </h2>
               <p className="mt-6 max-w-[48ch] leading-relaxed text-mute">
-                Write to us, and we will shape a partnership around it.
+                Write to us or reach out on social media, and we will shape a partnership around it.
               </p>
             </div>
 
@@ -151,6 +151,24 @@ export default function SponsorsPage() {
                     )}
                   </dd>
                 </div>
+                {EVENT.socials.length > 0 && (
+                  <div className="flex items-start justify-between gap-4 border-b border-line py-5">
+                    <dt className="annotation pt-0.5 text-mute">Social</dt>
+                    <dd className="text-right text-sm">
+                      <ul className="space-y-1.5">
+                        {EVENT.socials.map((s) => (
+                          <li key={s.url}>
+                            <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-signal">
+                              {s.label}
+                              <ArrowUpRight aria-hidden strokeWidth={1.5} className="size-4" />
+                              <span className="sr-only">(opens in a new tab)</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                )}
               </dl>
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
                 {EVENT.brochures.map((b) => (

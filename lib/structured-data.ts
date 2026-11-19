@@ -25,6 +25,8 @@ export function homeJsonLd() {
       alternateName: EVENT.shortName,
       url: url("/"),
       logo: url("/icon.png"),
+      email: EVENT.contactEmail ?? undefined,
+      sameAs: EVENT.socials.map((s) => s.url),
       member: CLUBS.map((club) => ({ "@type": "Organization", name: club.name })),
     },
     {

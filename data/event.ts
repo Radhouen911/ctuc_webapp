@@ -75,7 +75,11 @@ export const EVENT = {
     { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "557 KB" },
   ],
 
-  socials: [] as { label: string; url: string }[],
+  socials: [
+    { label: "Instagram", url: "https://www.instagram.com/ctuc_ctf/" },
+    { label: "Facebook", url: "https://www.facebook.com/people/Cybersecurity-Tunisian-University-Championship/61595952819807/" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/company/cybersecurity-tunisian-university-championship/" },
+  ] as { label: string; url: string }[],
 };
 
 export type EventMetric = { label: string; value: string | null };
