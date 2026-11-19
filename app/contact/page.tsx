@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Contact",
   path: "/contact",
-  description: "Contact the CTUC – Cybersecurity Tunisian University Championship team: general questions, sponsorship and social channels.",
+  description: "Contact the CTUC – Cybersecurity Tunisian University Championship team: general questions and sponsorship.",
 });
 
 export default function ContactPage() {
@@ -39,26 +39,6 @@ export default function ContactPage() {
                     <a href={`mailto:${EVENT.contactEmail}`} className="font-mono underline underline-offset-4 hover:text-crimson">
                       {EVENT.contactEmail}
                     </a>
-                  ) : (
-                    <Tba />
-                  )}
-                </dd>
-              </div>
-              <div className="grid grid-cols-[9rem_1fr] gap-4 border-b border-line py-5">
-                <dt className="annotation pt-1 text-mute">Social</dt>
-                <dd>
-                  {EVENT.socials.length > 0 ? (
-                    <ul className="space-y-1">
-                      {EVENT.socials.map((s) => (
-                        <li key={s.url}>
-                          <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-crimson">
-                            {s.label}
-                            <ArrowUpRight aria-hidden strokeWidth={1.5} className="size-4" />
-                            <span className="sr-only">(opens in a new tab)</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
                   ) : (
                     <Tba />
                   )}

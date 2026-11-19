@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { EVENT } from "@/data/event";
 import { RULES_PUBLISHED } from "@/lib/constants";
-import { Tba } from "@/components/ui/tba";
 
 const FOOTER_LINKS = [
   { label: "Register", href: "/register" },
@@ -60,35 +59,17 @@ export function SiteFooter() {
             </a>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 md:col-span-3 md:col-start-10">
-            <div>
-              <p className="annotation mb-4 text-mute">Site</p>
-              <ul className="space-y-2.5">
-                {FOOTER_LINKS.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-ink transition-colors hover:text-crimson">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="annotation mb-4 text-mute">Social</p>
-              {EVENT.socials.length > 0 ? (
-                <ul className="space-y-2.5">
-                  {EVENT.socials.map((s) => (
-                    <li key={s.url}>
-                      <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-sm text-ink hover:text-crimson">
-                        {s.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <Tba className="text-sm" />
-              )}
-            </div>
+          <nav aria-label="Footer" className="md:col-span-3 md:col-start-10">
+            <p className="annotation mb-4 text-mute">Site</p>
+            <ul className="space-y-2.5">
+              {FOOTER_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm text-ink transition-colors hover:text-crimson">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
 
