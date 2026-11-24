@@ -13,7 +13,7 @@ export const EVENT = {
   startsAt: EVENT_START_ISO,
   endsAt: EVENT_END_ISO,
   dateLabel: "5–6 December 2026",
-  /** Saturday 16:00 to Sunday 08:00 (Africa/Tunis): a 16-hour overnight championship. */
+  /** Saturday 16:00 to Sunday 08:00 (Africa/Tunis): the whole overnight event. The CTF itself lasts `duration`. */
   timeLabel: "Saturday 16:00 to Sunday 08:00",
   startTime: "16:00",
   endTime: "08:00",
@@ -53,7 +53,7 @@ export const EVENT = {
     "Organized by Securinets iTeam University, Engineers Spark iTeam University & iTeam University",
 
   format: "Jeopardy" as string | null,
-  duration: "16 hours" as string | null,
+  duration: "8 hours" as string | null,
   eligibility: "Students of a Tunisian university" as string | null,
   teamSize: "4 players" as string | null,
 
@@ -86,8 +86,8 @@ export const EVENT = {
   sponsorshipEmail: "sponsor@ctuc.tech" as string | null,
   /** Sponsorship brochures, one per language. */
   brochures: [
-    { lang: "en", language: "English", title: "Sponsorship brochure", href: "/CTUC_2026_Sponsorship_EN.pdf", size: "483 KB" },
-    { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "566 KB" },
+    { lang: "en", language: "English", title: "Sponsorship brochure", href: "/CTUC_2026_Sponsorship_EN.pdf", size: "540 KB" },
+    { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "568 KB" },
   ],
 
   socials: [
@@ -101,6 +101,6 @@ export type EventMetric = { label: string; value: string | null };
 
 export const EVENT_METRICS: EventMetric[] = [
   { label: "Parallel tracks", value: "2" },
-  { label: "Competition hours", value: "16" },
+  { label: "Competition hours", value: "8" },
   { label: "Prize pool", value: null },
 ];

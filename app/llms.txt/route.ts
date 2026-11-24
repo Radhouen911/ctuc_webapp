@@ -14,7 +14,7 @@ const url = (path: string) => new URL(path, SITE_URL).toString();
  */
 export function GET() {
   const facts = [
-    `Date: ${EVENT.weekday}, ${EVENT.dateLabel}. ${EVENT.timeLabel} (${EVENT.duration}, Africa/Tunis time)`,
+    `Date: ${EVENT.weekday}, ${EVENT.dateLabel}. The event runs ${EVENT.timeLabel} (Africa/Tunis time); the CTF itself lasts ${EVENT.duration}`,
     `Entry fees (per person): free for iTeam University students; ${EVENT.tracks.map((t) => `${t.name.replace(" CTF", "")} ${t.feeTnd} TND`).join(", ")}`,
     `Venue: ${EVENT.venue.name}, ${EVENT.venue.address}, ${EVENT.venue.country} (${EVENT.venue.mapsUrl})`,
     EVENT.format && `Format: ${EVENT.format} Capture The Flag`,
