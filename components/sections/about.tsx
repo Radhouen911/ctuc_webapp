@@ -10,7 +10,8 @@ const FACTS = [
   { label: "Eligibility", value: EVENT.eligibility },
   { label: "Team size", value: EVENT.teamSize },
   { label: "Duration", value: EVENT.duration },
-  { label: "Entry", value: EVENT.entryFeeTnd === null ? null : EVENT.entryFeeTnd === 0 ? "Free" : `${EVENT.entryFeeTnd} TND` },
+  { label: "iTeam University students", value: "Free" },
+  ...EVENT.tracks.map((t) => ({ label: `${t.name.replace(" CTF", "")} entry`, value: `${t.feeTnd} TND / person` })),
 ];
 
 export function About() {
@@ -47,14 +48,14 @@ export function About() {
                 <p className="text-lg leading-relaxed text-ink/90">
                   CTUC is a national Capture The Flag championship for university students across Tunisia. Teams of
                   four take on Jeopardy-style challenges in web, binary exploitation, reverse engineering,
-                  cryptography, forensics, OSINT and hardware. Every challenge hides a flag. Capture it to score.
+                  cryptography, forensics, OSINT, hardware and secure coding. Every challenge hides a flag. Capture it to score.
                 </p>
               </Reveal>
               <Reveal delay={0.12}>
                 <p className="leading-relaxed text-mute">
                   You don&rsquo;t need to be a security expert, or even study computer science. First CTF or fiftieth,
-                  any field, any background: if you&rsquo;re a student, there&rsquo;s a place for you. Powered by the{" "}
-                  {EVENT.poweredBy.shortName}, CTUC puts security on the national stage of university sport.
+                  any field, any background: if you&rsquo;re a student, there&rsquo;s a place for you. Powered by{" "}
+                  {EVENT.poweredBy.shortName}, CTUC puts security on the national stage.
                 </p>
               </Reveal>
             </div>
@@ -72,6 +73,9 @@ export function About() {
                   </p>
                   <h3 className="mt-6 font-editorial text-2xl font-semibold tracking-tight md:text-3xl">{t.name}</h3>
                   <p className="mt-3 max-w-[40ch] leading-relaxed text-mute">{t.summary}</p>
+                  <p className="annotation mt-5 text-ink">
+                    {t.feeTnd} TND per person · free for iTeam University students
+                  </p>
                 </RevealItem>
               ))}
             </RevealGroup>

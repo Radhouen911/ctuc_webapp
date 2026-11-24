@@ -83,7 +83,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 hover:text-crimson"
                   >
-                    {EVENT.poweredBy.shortName}
+                    {EVENT.poweredBy.name}
                     <ArrowUpRight aria-hidden strokeWidth={1.5} className="size-4" />
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>

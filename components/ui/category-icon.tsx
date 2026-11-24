@@ -4,8 +4,8 @@ import {
   Fingerprint,
   Globe,
   KeyRound,
-  Puzzle,
   ScanSearch,
+  ShieldCheck,
   SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
@@ -19,7 +19,7 @@ const ICONS: Record<IconId, LucideIcon> = {
   forensics: Fingerprint,
   osint: ScanSearch,
   hardware: CircuitBoard,
-  misc: Puzzle,
+  secure: ShieldCheck,
 };
 
 export function CategoryIcon({ id, className }: { id: IconId; className?: string }) {

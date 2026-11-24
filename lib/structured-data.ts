@@ -37,9 +37,8 @@ export function homeJsonLd() {
       description: `Tunisia's national university Capture The Flag championship. Teams of four compete in parallel Beginner and Advanced Jeopardy CTFs covering web, binary exploitation, reverse engineering, cryptography, forensics, OSINT and hardware.`,
       url: url("/"),
       image: [url("/opengraph-image.png")],
-      // Dates only: the start and end times are not confirmed yet.
-      startDate: EVENT.startDate,
-      endDate: EVENT.endDate,
+      startDate: EVENT.startsAt,
+      endDate: EVENT.endsAt,
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       inLanguage: "en",
@@ -59,22 +58,24 @@ export function homeJsonLd() {
         },
         hasMap: EVENT.venue.mapsUrl,
       },
-      organizer: CLUBS.map((club) => ({ "@type": "Organization", name: club.name, url: url(`/#${club.id}`) })),
+      organizer: [
+        ...CLUBS.map((club) => ({ "@type": "Organization", name: club.name, url: url(`/#${club.id}`) })),
+        { "@type": "Organization", name: EVENT.poweredBy.name, url: EVENT.poweredBy.url },
+      ],
       performer: { "@type": "PerformingGroup", name: "Student teams from Tunisian universities" },
       sponsor: { "@type": "Organization", name: EVENT.poweredBy.name, url: EVENT.poweredBy.url },
       audience: { "@type": "EducationalAudience", educationalRole: "student" },
-      // Published only once the entry fee is confirmed: a price must never be guessed.
-      ...(EVENT.entryFeeTnd !== null && {
-        offers: {
-          "@type": "Offer",
-          url: url("/register"),
-          price: EVENT.entryFeeTnd,
-          priceCurrency: "TND",
-          // Registration is not open until its URL is set.
-          availability: `https://schema.org/${EVENT.registrationUrl ? "InStock" : "PreOrder"}`,
-          ...(EVENT.registrationOpens && { validFrom: EVENT.registrationOpens }),
-        },
-      }),
+      // One offer per track, per person. iTeam University students enter free.
+      offers: EVENT.tracks.map((t) => ({
+        "@type": "Offer",
+        name: `${t.name} entry (free for iTeam University students)`,
+        url: url("/register"),
+        price: t.feeTnd,
+        priceCurrency: "TND",
+        // Registration is not open until its URL is set.
+        availability: `https://schema.org/${EVENT.registrationUrl ? "InStock" : "PreOrder"}`,
+        ...(EVENT.registrationOpens && { validFrom: EVENT.registrationOpens }),
+      })),
     },
   ];
 }

@@ -33,7 +33,7 @@ export function Schedule() {
               </p>
             </Reveal>
             <p className="mt-10 max-w-[38ch] leading-relaxed text-mute">
-              From Saturday into Sunday at{" "}
+              From Saturday {EVENT.startTime} into Sunday {EVENT.endTime} at{" "}
               <a
                 href={EVENT.venue.mapsUrl}
                 target="_blank"

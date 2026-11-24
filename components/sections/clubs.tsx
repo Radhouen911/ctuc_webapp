@@ -29,7 +29,7 @@ export function Clubs() {
             </h2>
           </div>
           <p className="col-span-12 max-w-[46ch] self-end leading-relaxed text-mute md:col-span-4 md:col-start-9">
-            {EVENT.shortName} is organized by {CLUBS.map((c) => c.name).join(" and ")}, in partnership with the{" "}
+            {EVENT.shortName} is organized by {CLUBS.map((c) => c.name).join(" and ")}, and powered by{" "}
             {EVENT.poweredBy.shortName}.
           </p>
         </div>

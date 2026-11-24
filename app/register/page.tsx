@@ -19,6 +19,7 @@ const DETAILS = [
   { label: "Team size", value: EVENT.teamSize },
   { label: "Eligibility", value: EVENT.eligibility },
   { label: "Format", value: EVENT.format },
+  { label: "Entry (per person)", value: `Free for iTeam University students · ${EVENT.tracks.map((t) => `${t.name.replace(" CTF", "")} ${t.feeTnd} TND`).join(" · ")}` },
   { label: "Tracks", value: EVENT.tracks.map((t) => t.name.replace(" CTF", "")).join(" · ") },
 ];
 

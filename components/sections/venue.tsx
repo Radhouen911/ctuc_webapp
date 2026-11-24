@@ -13,6 +13,7 @@ const DETAILS = [
   { label: "Venue", value: EVENT.venue.name },
   { label: "City", value: `${EVENT.venue.city}, ${EVENT.venue.country}` },
   { label: "Date", value: EVENT.dateLabel },
+  { label: "Time", value: "16:00 to 08:00" },
   { label: "Coordinates", value: `${lat.toFixed(4)}° N, ${lng.toFixed(4)}° E` },
 ];
 

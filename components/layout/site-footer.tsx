@@ -35,28 +35,26 @@ export function SiteFooter() {
 
           <div className="md:col-span-3 md:col-start-7">
             <p className="annotation mb-4 text-mute">Powered by</p>
-            {/* Official emblem on a white plate: the JPG has a white ground that must not be cut out. */}
-            <div className="mb-5 inline-block bg-white p-2.5">
-              <Image
-                src="/FTSSU.webp"
-                alt={`${EVENT.poweredBy.name} (${EVENT.poweredBy.shortName}) logo`}
-                width={364}
-                height={549}
-                sizes="64px"
-                className="h-20 w-auto"
-              />
-            </div>
+            {/* White-on-transparent logo: sits directly on the dark footer. */}
             <a
               href={EVENT.poweredBy.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-start gap-1.5 text-sm text-ink hover:text-crimson"
+              className="group inline-flex flex-col items-start gap-4 text-sm text-ink hover:text-crimson"
             >
-              <span className="max-w-[30ch] leading-snug">
-                {EVENT.poweredBy.name} ({EVENT.poweredBy.shortName})
+              <Image
+                src={EVENT.poweredBy.logo.src}
+                alt={`${EVENT.poweredBy.name} logo`}
+                width={EVENT.poweredBy.logo.width}
+                height={EVENT.poweredBy.logo.height}
+                sizes="176px"
+                className="h-auto w-44"
+              />
+              <span className="inline-flex items-start gap-1.5 leading-snug">
+                {EVENT.poweredBy.name}
+                <ArrowUpRight aria-hidden strokeWidth={1.5} className="mt-0.5 size-4 shrink-0" />
+                <span className="sr-only">(opens in a new tab)</span>
               </span>
-              <ArrowUpRight aria-hidden strokeWidth={1.5} className="mt-0.5 size-4 shrink-0" />
-              <span className="sr-only">(opens in a new tab)</span>
             </a>
           </div>
 
@@ -97,7 +95,22 @@ export function SiteFooter() {
           <p>
             © {YEAR} {EVENT.shortName}. All rights reserved.
           </p>
-          <p className="text-ink/80 md:whitespace-nowrap">{EVENT.organizerCredit}</p>
+          <p className="text-ink/80">
+            Organized by{" "}
+            {EVENT.organizers.map((o, i) => (
+              <span key={o.name}>
+                {i > 0 && (i === EVENT.organizers.length - 1 ? " & " : ", ")}
+                {o.url ? (
+                  <a href={o.url} target="_blank" rel="noopener noreferrer" className="underline decoration-line underline-offset-4 hover:text-crimson">
+                    {o.name}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ) : (
+                  o.name
+                )}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
     </footer>

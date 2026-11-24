@@ -1,4 +1,4 @@
-export type CategoryIcon = "web" | "pwn" | "reverse" | "crypto" | "forensics" | "osint" | "hardware" | "misc";
+export type CategoryIcon = "web" | "pwn" | "reverse" | "crypto" | "forensics" | "osint" | "hardware" | "secure";
 
 export type Category = {
   code: string;
@@ -56,9 +56,10 @@ export const CATEGORIES: Category[] = [
       "Go below the software. Read signals, dump firmware and make sense of the circuits, protocols and chips behind a device.",
   },
   {
-    code: "CLS-M08",
-    name: "Miscellaneous",
-    icon: "misc",
-    description: "Everything that refuses a label: odd encodings, scripting puzzles, steganography and pure lateral thinking.",
+    code: "CLS-S08",
+    name: "Secure Coding",
+    icon: "secure",
+    description:
+      "Defend instead of attack. Review vulnerable source code, spot the flaw and write the patch that closes it for good.",
   },
 ];

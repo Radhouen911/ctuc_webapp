@@ -1,4 +1,4 @@
-import { EVENT_START_ISO } from "@/lib/constants";
+import { EVENT_END_ISO, EVENT_START_ISO } from "@/lib/constants";
 
 /**
  * Editable event facts. `null` means "not yet confirmed" and renders as [TBA].
@@ -11,7 +11,12 @@ export const EVENT = {
   tagline: "Find the flaw. Take the flag.",
   edition: "CTUC·26",
   startsAt: EVENT_START_ISO,
+  endsAt: EVENT_END_ISO,
   dateLabel: "5–6 December 2026",
+  /** Saturday 16:00 to Sunday 08:00 (Africa/Tunis): a 16-hour overnight championship. */
+  timeLabel: "Saturday 16:00 to Sunday 08:00",
+  startTime: "16:00",
+  endTime: "08:00",
   /** The day the championship starts; it runs overnight and ends on `endDate`. */
   startLabel: "5 December 2026",
   startDate: "2026-12-05",
@@ -20,30 +25,35 @@ export const EVENT = {
   weekday: "Saturday to Sunday",
 
   venue: {
-    name: "Tunis Science City",
-    /** From the sponsorship brochure. */
-    address: "Mohamed Bouazizi Avenue, Tunis",
-    description:
-      "A national institution dedicated to spreading scientific and technical culture, in the north of Tunis. The six-hectare site includes exhibition spaces, a planetarium, a media library and a congress center with two auditoriums.",
+    name: "UTICA",
+    /** The place on the organizers' Google Maps link: the CICT congress center of UTICA. */
+    address: "Centre International des Congrès de Tunis (CICT), UTICA, Tunis",
     city: "Tunis",
     country: "Tunisia",
     /** Resolved from the organizers' Google Maps link. */
-    coordinates: { lat: 36.8495842, lng: 10.1885171 },
-    mapsUrl: "https://maps.app.goo.gl/JYZExL94axedzQEN9",
-    mapEmbedUrl:
-      "https://maps.google.com/maps?q=Cit%C3%A9+des+Sciences+%C3%A0+Tunis&ll=36.8495842,10.1885171&z=16&hl=en&output=embed",
+    coordinates: { lat: 36.8328619, lng: 10.1864953 },
+    mapsUrl: "https://maps.app.goo.gl/zKZ9Guw6tiWFnwJKA",
+    mapEmbedUrl: "https://maps.google.com/maps?q=36.8328619,10.1864953&z=16&hl=en&output=embed",
   },
 
   poweredBy: {
-    name: "Fédération Tunisienne des Sports Scolaires et Universitaires",
-    shortName: "FTSSU",
-    url: "https://www.fisu.net/nusf/tunisia/",
+    name: "iTeam University",
+    shortName: "iTeam University",
+    url: "https://iteam-univ.tn/",
+    logo: { src: "/clubs/iteam-university-white.png", width: 4742, height: 1614 },
   },
 
-  organizerCredit: "Organized by Securinets iTeam University & Engineers Spark iTeam University",
+  /** Organizers in credit order; `url` is set where the organizer has a public site. */
+  organizers: [
+    { name: "Securinets iTeam University" },
+    { name: "Engineers Spark iTeam University" },
+    { name: "iTeam University", url: "https://iteam-univ.tn/" },
+  ] as { name: string; url?: string }[],
+  organizerCredit:
+    "Organized by Securinets iTeam University, Engineers Spark iTeam University & iTeam University",
 
   format: "Jeopardy" as string | null,
-  duration: null as string | null,
+  duration: "16 hours" as string | null,
   eligibility: "Students of a Tunisian university" as string | null,
   teamSize: "4 players" as string | null,
 
@@ -53,26 +63,31 @@ export const EVENT = {
       id: "beginner",
       name: "Beginner CTF",
       summary: "For students taking their first steps in security. No prior CTF experience needed.",
+      feeTnd: 5,
     },
     {
       id: "advanced",
       name: "Advanced CTF",
       summary: "For experienced players ready for hard challenges and a tougher scoreboard.",
+      feeTnd: 10,
     },
   ],
 
   registrationUrl: null as string | null,
   registrationOpens: null as string | null,
   registrationCloses: null as string | null,
-  /** Entry fee in Tunisian dinars; 0 means free. */
-  entryFeeTnd: 0 as number | null,
+  /** Entry fees, per person, in Tunisian dinars. Track fees live on `tracks[].feeTnd`. */
+  entryFees: {
+    /** Students of iTeam University enter free, in either track. */
+    iteamStudentsTnd: 0,
+  },
   /** From the sponsorship brochure. */
   contactEmail: "contact@ctuc.tech" as string | null,
   sponsorshipEmail: "sponsor@ctuc.tech" as string | null,
   /** Sponsorship brochures, one per language. */
   brochures: [
-    { lang: "en", language: "English", title: "Sponsorship brochure", href: "/CTUC_2026_Sponsorship_EN.pdf", size: "477 KB" },
-    { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "557 KB" },
+    { lang: "en", language: "English", title: "Sponsorship brochure", href: "/CTUC_2026_Sponsorship_EN.pdf", size: "483 KB" },
+    { lang: "fr", language: "Français", title: "Dossier de sponsoring", href: "/CTUC_2026_Dossier_Sponsoring_FR.pdf", size: "566 KB" },
   ],
 
   socials: [
@@ -86,6 +101,6 @@ export type EventMetric = { label: string; value: string | null };
 
 export const EVENT_METRICS: EventMetric[] = [
   { label: "Parallel tracks", value: "2" },
-  { label: "Competition hours", value: null },
+  { label: "Competition hours", value: "16" },
   { label: "Prize pool", value: null },
 ];

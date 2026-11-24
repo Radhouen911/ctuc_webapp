@@ -1,5 +1,4 @@
 import { CATEGORIES } from "@/data/categories";
-import { CLUBS } from "@/data/clubs";
 import { EVENT } from "@/data/event";
 import { PRIZE_TRACKS } from "@/data/prizes";
 import { SPONSORS } from "@/data/sponsors";
@@ -15,8 +14,8 @@ const url = (path: string) => new URL(path, SITE_URL).toString();
  */
 export function GET() {
   const facts = [
-    `Date: ${EVENT.weekday}, ${EVENT.dateLabel}. Starts ${EVENT.startLabel} and runs overnight; start time to be announced`,
-    EVENT.entryFeeTnd === 0 && `Entry: free`,
+    `Date: ${EVENT.weekday}, ${EVENT.dateLabel}. ${EVENT.timeLabel} (${EVENT.duration}, Africa/Tunis time)`,
+    `Entry fees (per person): free for iTeam University students; ${EVENT.tracks.map((t) => `${t.name.replace(" CTF", "")} ${t.feeTnd} TND`).join(", ")}`,
     `Venue: ${EVENT.venue.name}, ${EVENT.venue.address}, ${EVENT.venue.country} (${EVENT.venue.mapsUrl})`,
     EVENT.format && `Format: ${EVENT.format} Capture The Flag`,
     EVENT.teamSize && `Team size: ${EVENT.teamSize}`,
@@ -24,8 +23,8 @@ export function GET() {
     `Tracks (run in parallel): ${EVENT.tracks.map((t) => `${t.name}: ${t.summary}`).join(" ")}`,
     `Prizes: the ${PRIZE_TRACKS.join(" and ")} tracks each award first, second and third place; more teams receive vouchers.`,
     `Challenge categories: ${CATEGORIES.map((c) => c.name).join(", ")}`,
-    `Organizers: ${CLUBS.map((c) => c.name).join(" and ")}`,
-    `Powered by: ${EVENT.poweredBy.name} (${EVENT.poweredBy.shortName}), ${EVENT.poweredBy.url}`,
+    `Organizers: ${EVENT.organizers.map((o) => o.name).join(", ")}`,
+    `Powered by: ${EVENT.poweredBy.name}, ${EVENT.poweredBy.url}`,
     SPONSORS.length > 0 && `Partners: ${SPONSORS.map((s) => s.name).join(", ")}`,
     `Registration: ${EVENT.registrationUrl ?? "not open yet; announced on the website"}`,
   ].filter(Boolean);
