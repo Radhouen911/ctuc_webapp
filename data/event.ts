@@ -73,7 +73,7 @@ export const EVENT = {
     },
   ],
 
-  registrationUrl: null as string | null,
+  registrationUrl: "https://forms.gle/KyCgC3fVPjYz77cu5" as string | null,
   registrationOpens: null as string | null,
   registrationCloses: null as string | null,
   /** Entry fees, per person, in Tunisian dinars. Track fees live on `tracks[].feeTnd`. */
